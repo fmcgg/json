@@ -654,6 +654,15 @@ impl Value {
         }
     }
 
+    /// If the `Value` is an integer, represent it as u32 if possible. Returns
+    /// None otherwise.
+    pub fn as_u32(&self) -> Option<u32> {
+        match self {
+            Value::Number(n) => n.as_u32(),
+            _ => None,
+        }
+    }
+
     /// If the `Value` is a number, represent it as f64 if possible. Returns
     /// None otherwise.
     ///
